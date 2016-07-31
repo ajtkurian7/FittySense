@@ -1,33 +1,47 @@
-# FresherNote
+# FittySense
 
-[Heroku link][heroku] **Note:** This should be a link to your production site
+[FittySense link][FittySense] **Note:** This should be a link to your production site
 
-[heroku]: http://www.herokuapp.com
+[FittySense]: http://www.strava.com
 
 ## Minimum Viable Product
 
-FresherNote is a web application inspired by Evernote that will be build using Ruby on Rails and React.js.  By the end of Week 9, this app will, at a minimum, satisfy the following criteria:
+FittySense is a web application inspired by Strava that will be built using Ruby on Rails and React.js.  By the end of Week 9, this app will, at a minimum, satisfy the following criteria:
+
+### General Features
 
 - [ ] Hosting on Heroku
 - [ ] New account creation, login, and guest/demo login
-- [ ] A production README, replacing this README (**NB**: check out the [sample production README](docs/production_readme.md) -- you'll write this later)
-- [ ] Notes
+- [ ] A production README, replacing this README
+- [ ] All Features must have:
   - [ ] Smooth, bug-free navigation
   - [ ] Adequate seed data to demonstrate the site's features
-  - [ ] Adequate CSS styling
-- [ ] Notebooks for organizing notes
-  - [ ] Smooth, bug-free navigation
-  - [ ] Adequate seed data to demonstrate the site's features
-  - [ ] Adequate CSS styling
-- [ ] Tags for notes
-  - [ ] Smooth, bug-free navigation
-  - [ ] Adequate seed data to demonstrate the site's features
-  - [ ] Adequate CSS styling
-- [ ] Rich Text Editing of notes
-  - [ ] Smooth, bug-free navigation
-  - [ ] Adequate seed data to demonstrate the site's features
-  - [ ] Adequate CSS styling
-- [ ] Infinite Scroll for Notes
+  - [ ] Adequate CSS Styling
+
+### Specific Features
+
+- [ ] Creating Routes
+  - [ ] Draw routes in Google Maps from starting and ending points
+  - [ ] Option to add exercise markers along planned route
+  - [ ] Calculate difficulty of workout based on number of exercise markers and length of route
+  - [ ] Creating show page for each route with applicable information
+- [ ] Saving Workouts
+  - [ ] Save created routes with workouts to DB
+  - [ ] Option to save other users created workouts
+  - [ ] Create additional marker workouts to be added to routes
+- [ ] Workout Feed
+  - [ ] Display all completed workouts performed by user
+  - [ ] Display all workouts completed recently in community feed
+  - [ ] Have options to view, save, and comment on workouts in feed
+  - [ ] Have a like button
+- [ ] Workout Stats/Totals
+  - [ ] Calculate user level based on workouts completed
+  - [ ] Track total distance traveled, workouts completed, markers finished, Start time, end time, splits for each marker.
+  - [ ] Integrate points system as a single metric
+- [ ] Bonus
+  - [ ] Mobile Interface to log exercise markers during route
+  - [ ] Spotify playlist integration
+  - [ ] Pictures feed in each workout
 
 ## Design Docs
 * [View Wireframes][views]

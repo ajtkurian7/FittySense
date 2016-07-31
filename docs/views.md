@@ -6,17 +6,32 @@
 ## New Session
 ![new-session]
 
-## NotesIndex / NoteIndexItem / NoteForm
+## Users Show Page (if logged in)
+![main-page]
+
+## Routes Index
+![routes-index]
+
+## Exercises Index
+![exercises-index]
+
+## New Exercise View
+![new-exercise]
+<!-- ## NotesIndex / NoteIndexItem / NoteForm
 ![notes]
 
 ## NotebooksIndex / NotebookIndexItem
 ![notebooks]
 
 ## NotebookForm
-![notebook-form]
+![notebook-form] -->
 
 [new-user]: ./wireframes/new_user.png
 [new-session]: ./wireframes/new_session.png
-[notes]: ./wireframes/root_notes.png
+[main-page]: ./wireframes/main-page.png
+[routes-index]: ./wireframes/routes-index.png
+[exercises-index]: ./wireframes/exercises-index.png
+[new-exercise]: ./wireframes/new-exercise-view.png
+<!-- [notes]: ./wireframes/root_notes.png
 [notebooks]: ./wireframes/root_notebooks.png
-[notebook-form]: ./wireframes/notebook_form.png
+[notebook-form]: ./wireframes/notebook_form.png -->
