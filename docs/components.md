@@ -11,7 +11,7 @@ _**exactly**_ match the nesting of your routes.)
   * **SignupForm**
   * Navbar
   * **UserShow**
-    * Followers
+    * **Followers**
       * List of Followers
       * Add Follower
     * User Stats
@@ -22,16 +22,15 @@ _**exactly**_ match the nesting of your routes.)
         * Add to Own List of Routes Button
         * Like Button
   * **RoutesIndex**
-    * Map of selected/create route
-    * List of Routes
-    * Create Route Button
+    * RouteDetail
+    * RoutesListItem(s)
   * **ExercisesIndex**
     * **NewExerciseForm**
-    * List of Available Exercises
-    * Exercise Description
+    * ExerciseIndexItem(s)
+    * Supplemental Info (ExerciseDetail)
+      * **ExerciseRepo**
+      * Exercise Description
     * User's Exercise List
-    * Add New Exercise from Repo
-    * Create New Exercise
 
 
 ## Routes
@@ -41,5 +40,7 @@ _**exactly**_ match the nesting of your routes.)
   * **component** `SignupForm` **path:** `/signup`
   * **component:** `UserShow` **path:** `users/userId`
     * **component:** `RoutesIndex` **path:** `/routes`
+    * **component:** `Followers` **path:** `/followers`
     * **component:** `ExercisesIndex` **path:** `/exercises`
       * **component:** `NewExercise` **path:** `/new`
+  * **component** `ExerciseRepo` **path:** `/exercises`
