@@ -1,45 +1,42 @@
 # Schema Information
 
-## notes
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-title       | string    | not null
-body        | text      | not null
-author_id   | integer   | not null, foreign key (references users), indexed
-notebook_id | integer   | not null, foreign key (references notebooks), indexed
-archived    | boolean   | not null, default: false
 
-## notebooks
+## Routes
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 author_id   | integer   | not null, foreign key (references users), indexed
 title       | string    | not null
-description | string    | 
+description | text      |
+map_info    | text      | not null, JSON string
 
-## reminders
+## Exercises
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 user_id     | integer   | not null, foreign key (references users), indexed
-note_id     | string    | not null, foreign key (references notes), indexed
-date        | datetime  | not null
-type        | string    | not null
-prev_id     | integer   | foreign key (references reminders), indexed
+route_id    | integer   | not null, foreign key (references route), indexed
+title       | string    | not null
+description | text      |
+num_reps    | integer   | not null
+difficulty  | integer   | not null, between (1-10)
 
-## tags
+## Followers
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-name        | string    | not null
+follower_id | integer   | not null, foreign key (references users), indexed
+followee_id | integer   | not null, foreign key (references users), indexed
 
-## taggings
+## Stats
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-note_id     | integer   | not null, foreign key (references notes), indexed, unique [tag_id]
-tag_id      | integer   | not null, foreign key (references tags), indexed
+user_id     | integer   | not null, foreign key (references notes), indexed, unique [user_id]
+routes_fin  | integer   | not null
+exerc_fin   | integer   | not null
+time_ran    | datetime  | not null
+power_score | integer   | not null
 
 ## users
 column name     | data type | details

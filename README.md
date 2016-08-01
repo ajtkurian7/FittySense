@@ -74,76 +74,72 @@ FittySense is a web application inspired by Strava that will be built using Ruby
 - [ ] style signin/signup components
 - [ ] seed users
 
-### Phase 2: Notes Model, API, and components (2 days, W1 F 6pm)
+### Phase 2: Routes Model, API, and components (2 days, W1 F 6pm)
 
-**Objective:** Notes can be created, read, edited and destroyed through
+**Objective:** Routes can be created, read, edited and destroyed through
 the API.
 
-- [ ] create `Note` model
+- [ ] create `Route` model
 - [ ] seed the database with a small amount of test data
-- [ ] CRUD API for notes (`NotesController`)
-- [ ] jBuilder views for notes
+- [ ] CRUD API for routes (`RoutesController`)
+- [ ] jBuilder views for routes
 - [ ] test out API interaction in the console.
-- implement each note component, building out the flux loop as needed.
-  - [ ] `NotesIndex`
-  - [ ] `NoteIndexItem`
-  - [ ] `NoteForm`
-- [ ] save Notes to the DB when the form loses focus or is left idle after editing.
-- [ ] style notes components
-- [ ] seed notes
+- implement each route component, building out the flux loop as needed.
+  - [ ] `RoutesIndex`
+  - [ ] `RouteIndexItem`
+  - [ ] `RouteMap`
+- [ ] save Routes to the DB when the form loses focus or is left idle after editing.
+- [ ] Seed Routes
 
-### Phase 3: Notebooks (2 day, W2 Tu 6pm)
+### Phase 3: Exercises (2 day, W2 Tu 6pm)
 
-**Objective:** Notes belong to Notebooks, and can be viewed by notebook.
+**Objective:** Exercises belong to Routes, and can be created and added to the Route.
 
-- [ ] create `Notebook` model
+- [ ] create `Exercise` model
 - build out API, Flux loop, and components for:
-  - [ ] Notebook CRUD
-  - [ ] adding notes requires a notebook
-  - [ ] moving notes to a different notebook
-  - [ ] viewing notes by notebook
-- [ ] Use CSS to style new components
-- [ ] Seed Notebooks
+  - [ ] Exericse CRUD
+  - [ ] adding exercises to personal User DB
+  - [ ] adding exercises to routes
+  - [ ] viewing exercises per route
+- [ ] Seed Exercises
 
-Phase 3 adds organization to the Notes. Notes belong to a Notebook,
-which has its own `Index` view.
+Phase 3 adds exercise implementation into the routes.
 
-### Phase 4: Tags (1 days, W2 W 6pm)
+### Phase 4: Followers (1 days, W2 W 6pm)
 
-**Objective:** Notes can be tagged with multiple tags, and tags are searchable.
+**Objective:** Users can add Followers from the followers component in the main user page
 
-- [ ] create `Tag` model and join table
+- [ ] create `Follower` model and join table
 - build out API, Flux loop, and components for:
-  - [ ] fetching tags for notebook
-  - [ ] adding tags to notebook
-  - [ ] creating tags while adding to notebooks
-  - [ ] searching notebooks by tag
+  - [ ] build activity feed based on followers table
+  - [ ] fetching followers for Followers component
+  - [ ] adding followers from search
+  - [ ] Removing followers
 - [ ] Style new elements
-- [ ] Seed tags and tag the seeded Notebooks
+- [ ] Seed followers information
 
-### Phase 5: Allow Complex Styling in Notes (1 days, W2 Th 6pm)
+### Phase 5: Add Statistics for Each User (1 days, W2 Th 6pm)
 
-**objective:** Enable complex styling of notes.
+**objective:** Automatically calculate stats based on finished workouts
 
-- [ ] Integrate `react-quill` (based on Quill.js).
-- [ ] Use Rails helpers to sanitize HTML before rendering.
-- [ ] Style the new Quill elements.
-- [ ] Add Quill styling to seeded notes
+- [ ] Show stats in UserStats component
+- [ ] Show leaderboard for all followers/followees based on power score
+- [ ] Automatically update stats based on finished workouts
+- [ ] View User Stats on User Page
 
-### Phase 6: - Pagination / infinite scroll for Notes Index (1 day, W2 F 6pm)
+### Phase 6: - CSS (1 day, W2 F 6pm)
 
-**objective:** Add infinite scroll to Notes Index
+**objective:** Make website look presentable
 
-- [ ] Paginate Notes Index API to send 20 results at a time
-- [ ] Append next set of results when user scrolls and is near bottom
-- [ ] Make sure styling still looks good
-- [ ] Ensure we have enough seeded notes to demo infinite scroll
+- [ ] Make sure all elements are thematically organized
+- [ ] Adhere to color scheme of original website
+- [ ] Add effects to enhance navigation
+- [ ] Ensure smooth navigation throughout website
 
 ### Bonus Features (TBD)
-- [ ] Search through notes for blocks of text
-- [ ] Set reminders on notes
-- [ ] Changelogs for Notes
-- [ ] Multiple sessions
+- [ ] Mobile Interface to log exercise markers during route
+- [ ] Spotify playlist integration
+- [ ] Pictures feed in each workout
 
 [phase-one]: docs/phases/phase1.md
 [phase-two]: docs/phases/phase2.md

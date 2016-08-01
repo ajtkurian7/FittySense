@@ -1,42 +1,41 @@
-# Phase 3: Notebooks (2 day, W2 Tu 6pm)
+# Phase 3: Exercises (2 day, W2 Tu 6pm)
 
 ## Rails
 ### Models
-* Notebook
-* Tag
-* Tagging
+* Exercise
+
 
 ### Controllers
-* Api::NotebooksController (create, destroy, index, show, update)
+* Api::ExercisesController (create, destroy, index, show, update)
 
 ### Views
-* notebooks/index.json.jbuilder
-* notebooks/show.json.jbuilder
+* exercises/index.json.jbuilder
+* exercises/show.json.jbuilder
 
 ## Flux
 ### Views (React Components)
-* NotebooksIndex
-  - NotebookIndexItem
-* NotebookForm
+* ExercisesIndex
+  - ExerciseIndexItem
+* ExerciseDetail
 
 ### Stores
-* Notebook
+* Exercise
 
 ### Actions
-* `ApiActions.receiveAllNotebooks`
-* `ApiActions.receiveSingleNotebook`
-* `ApiActions.deleteNotebook`
-* `NotebookActions.fetchAllNotebooks`
-* `NotebookActions.fetchSingleNotebook`
-* `NotebookActions.createNotebook`
-* `NotebookActions.editNotebook`
-* `NotebookActions.destroyNotebook`
+* `ApiActions.receiveAllExercises`
+* `ApiActions.receiveOneExercise`
+* `ApiActions.destroyExercise`
+* `ExerciseActions.fetchAllExercises`
+* `ExerciseActions.fetchOneExercise`
+* `ExerciseActions.createExercise`
+* `ExerciseActions.updateExercise`
+* `ExerciseActions.deleteExercise`
 
 ### ApiUtil
-* `ApiUtil.fetchAllNotebooks`
-* `ApiUtil.fetchSingleNotebook`
-* `ApiUtil.createNotebook`
-* `ApiUtil.editNotebook`
-* `ApiUtil.destroyNotebook`
+* `ApiUtil.fetchAllExercises`
+* `ApiUtil.fetchOneExercise`
+* `ApiUtil.createExercise`
+* `ApiUtil.editExercise`
+* `ApiUtil.deleteExercise`
 
 ## Gems/Libraries

@@ -66,16 +66,21 @@ what you'll need to do.
   0. `receiveOwnRoutes` is set as callback.
 
 * `fetchOneRoute`
-  0. invoked from `SingleRoute` `onClick`
+  0. invoked from `RoutesIndexItem` `onClick`
   0. `GET /api/users/[own id]/routes/:id`
   0. `receiveOneRoute` is set as the callback.
+
+* `createRoute`
+  0. invoked from new route `onClick`
+  0. `POST /api/users/[own id]/routes`
+  0. `receiveOneRoute` is set as the callback
 
 * `updateRoute`
   0. invoked from button `onClick` in `RouteMap`
   0. `PATCH /api/users/[own id]/routes/:id`
   0. `receiveOneRoute` is set as callback
 
-* `destroyRoute`
+* `deleteRoute`
   0. invoked from button `onClick` in `RouteMap`
   0. `DELETE /api/users/[own id]/routes/:id`
   0. `destroyRoute` is set as the callback
@@ -125,12 +130,17 @@ what you'll need to do.
   0. `GET /api/users/[own id]/exercises/[:id]`
   0. `receiveOneExercise` is set as the callback
 
+* `createExercise`
+  0. invoked from create button `onClick`
+  0. `POST /api/users/[own id]/exercises`
+  0. `receiveOneExercise` is set as the callback
+
 * `updateExercise`
   0. invoked from button `onClick` in `ExerciseDetail`
   0. `PATCH /api/users/[own id]/exercises/[:id]`
   0. `receiveOneExercise` is set as the callback
 
-* `destroyExercise`
+* `deleteExercise`
   0. invoked from button `onClick` in `ExerciseDetail`
   0. `DELETE /api/users/[own id]/exercises/[:id]`
   0. `removeExercise` is set as the callback
@@ -145,7 +155,7 @@ what you'll need to do.
   0. invoke from an API callback
   0. `Exercise` store finds and updates `_exercises[:id]` and emits change
 
-* `removeExercise`
+* `destroyExercise`
   0. invoke from an API callback
   0. `Exercise` store finds and removes `_exercises[:id]` and emits change
 
@@ -182,3 +192,35 @@ what you'll need to do.
 ### Store Listeners  
 
 * `Followers` listens to `Follower` store
+
+## Stat Cycles
+
+### Stats API Request Actions
+
+* `fetchAllStats`
+  0. invoked from `UserStats` (leaderboard) `didMount/willReceiveProps`
+  0. `GET /api/stats`
+  0. `receiveAllStats` is set as the callback
+
+* `fetchUserStats`
+  0. invoked from `UserStats` `didMount/willReceiveProps`
+  0. `GET /api/users/[:id]/stats`
+  0. `receiveUserStats` is set as the callback
+
+* `updateStats`
+  0. invoked from Finished Route button `onClick`
+  0. `PATCH /api/users/[:id]/stats/`
+  0. `receiveUserStats` is set as the callback
+
+### Stats API Response Actions
+
+* `receiveAllStats`
+  0. invoked from API callback
+  0. `Stats` store updates `_stats` and emits change
+
+* `receiveUserStats`
+  0. invoked from API callback
+  0. `Stats` store updates and finds user `_stats[user_id]` and emits change
+
+### Store Listeners
+* `UserStats` listens to `Stats` store

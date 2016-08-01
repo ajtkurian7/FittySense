@@ -1,40 +1,40 @@
-# Phase 2: Flux Architecture and Note CRUD (2 days, W1 F 6pm)
+# Phase 2: Flux Architecture and Route CRUD (2 days, W1 F 6pm)
 
 ## Rails
 ### Models
-* Note
+* Route
 
 ### Controllers
-* Api::NotesController (create, destroy, index, show, update)
+* Api::RoutesController (create, destroy, index, show, update)
 
 ### Views
-* notes/index.json.jbuilder
-* notes/show.json.jbuilder
+* Routes/index.json.jbuilder
+* routes/show.json.jbuilder
 
 ## Flux
 ### Views (React Components)
-* NotesIndex
-  - NotesIndexItem
-* NoteForm
+* RoutesIndex
+  - RoutesIndexItem
+* RouteMap
 
 ### Stores
-* Note
+* OwnRoute
 
 ### Actions
-* `ApiActions.receiveAllNotes`
-* `ApiActions.receiveSingleNote`
-* `ApiActions.deleteNote`
-* `NoteActions.fetchAllNotes`
-* `NoteActions.fetchSingleNote`
-* `NoteActions.createNote`
-* `NoteActions.editNote`
-* `NoteActions.destroyNote`
+* `ApiActions.receiveOwnRoutes`
+* `ApiActions.receiveOneRoute`
+* `ApiActions.destroyRoute`
+* `RouteActions.fetchOwnRoutes`
+* `RouteActions.fetchOneRoute`
+* `RouteActions.createRoute`
+* `RouteActions.updateRoute`
+* `RouteActions.deleteRoute`
 
 ### ApiUtil
-* `ApiUtil.fetchAllNotes`
-* `ApiUtil.fetchSingleNote`
-* `ApiUtil.createNote`
-* `ApiUtil.editNote`
-* `ApiUtil.destroyNote`
+* `ApiUtil.fetchOwnRoutes`
+* `ApiUtil.fetchFollowedUsersRoutes`
+* `ApiUtil.createRoute`
+* `ApiUtil.updateRoute`
+* `ApiUtil.deleteRoute`
 
 ## Gems/Libraries

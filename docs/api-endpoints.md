@@ -45,3 +45,10 @@
 - `GET /api/users/:id/followers`
 - `POST /api/users/:id/followers`
 - `DELETE api/users/:id/followers/:id`
+
+### Stats
+
+- `GET /api/stats`
+  - all users stats
+- `GET /api/users/id/stats`
+- `PATCH /api/users/id/stats`
