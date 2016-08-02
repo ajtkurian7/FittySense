@@ -3,6 +3,7 @@
 ## Rails
 ### Models
 * User
+* ExerciseRoute
 * Session
 
 ### Controllers

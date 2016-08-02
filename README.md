@@ -20,15 +20,15 @@ FittySense is a web application inspired by Strava that will be built using Ruby
 
 ### Specific Features
 
-- [ ] Creating Routes
-  - [ ] Draw routes in Google Maps from starting and ending points
+- [ ] Creating WorkoutRoutes
+  - [ ] Draw WorkoutRoutes in Google Maps from starting and ending points
   - [ ] Option to add exercise markers along planned route
   - [ ] Calculate difficulty of workout based on number of exercise markers and length of route
   - [ ] Creating show page for each route with applicable information
 - [ ] Saving Workouts
-  - [ ] Save created routes with workouts to DB
+  - [ ] Save created WorkoutRoutes with workouts to DB
   - [ ] Option to save other users created workouts
-  - [ ] Create additional marker workouts to be added to routes
+  - [ ] Create additional marker workouts to be added to WorkoutRoutes
 - [ ] Workout Feed
   - [ ] Display all completed workouts performed by user
   - [ ] Display all workouts completed recently in community feed
@@ -74,36 +74,38 @@ FittySense is a web application inspired by Strava that will be built using Ruby
 - [ ] style signin/signup components
 - [ ] seed users
 
-### Phase 2: Routes Model, API, and components (2 days, W1 F 6pm)
+### Phase 2: WorkoutRoutes Model, API, and components (2 days, W1 F 6pm)
 
-**Objective:** Routes can be created, read, edited and destroyed through
+**Objective:** WorkoutRoutes can be created, read, edited and destroyed through
 the API.
 
 - [ ] create `Route` model
 - [ ] seed the database with a small amount of test data
-- [ ] CRUD API for routes (`RoutesController`)
-- [ ] jBuilder views for routes
+- [ ] CRUD API for WorkoutRoutes (`RoutesController`)
+- [ ] jBuilder views for WorkoutRoutes
 - [ ] test out API interaction in the console.
 - implement each route component, building out the flux loop as needed.
   - [ ] `RoutesIndex`
   - [ ] `RouteIndexItem`
   - [ ] `RouteMap`
-- [ ] save Routes to the DB when the form loses focus or is left idle after editing.
-- [ ] Seed Routes
+- [ ] save WorkoutRoutes to the DB when the form loses focus or is left idle after editing.
+- [ ] Seed WorkoutRoutes
+- [ ] Add CSS and Smooth Navigation
 
 ### Phase 3: Exercises (2 day, W2 Tu 6pm)
 
-**Objective:** Exercises belong to Routes, and can be created and added to the Route.
+**Objective:** Exercises belong to WorkoutRoutes, and can be created and added to the WorkoutRoute.
 
 - [ ] create `Exercise` model
 - build out API, Flux loop, and components for:
   - [ ] Exericse CRUD
   - [ ] adding exercises to personal User DB
-  - [ ] adding exercises to routes
+  - [ ] adding exercises to WorkoutRoutes
   - [ ] viewing exercises per route
 - [ ] Seed Exercises
+- [ ] CSS
 
-Phase 3 adds exercise implementation into the routes.
+Phase 3 adds exercise implementation into the WorkoutRoutes.
 
 ### Phase 4: Followers (1 days, W2 W 6pm)
 

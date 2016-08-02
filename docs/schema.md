@@ -8,7 +8,7 @@ id          | integer   | not null, primary key
 author_id   | integer   | not null, foreign key (references users), indexed
 title       | string    | not null
 description | text      |
-map_info    | text      | not null, JSON string
+map_info    | JSON      | not null
 
 ## Exercises
 column name | data type | details
@@ -21,7 +21,7 @@ description | text      |
 num_reps    | integer   | not null
 difficulty  | integer   | not null, between (1-10)
 
-## Followers
+## Follows
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
@@ -32,9 +32,9 @@ followee_id | integer   | not null, foreign key (references users), indexed
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-user_id     | integer   | not null, foreign key (references notes), indexed, unique [user_id]
-routes_fin  | integer   | not null
-exerc_fin   | integer   | not null
+user_id     | integer   | not null, foreign key (references users), indexed, unique [user_id]
+completed_routes  | integer   | not null
+completed_exercises   | integer   | not null
 time_ran    | datetime  | not null
 power_score | integer   | not null
 

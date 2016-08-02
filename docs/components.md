@@ -1,10 +1,5 @@
 ## Component Hierarchy
 
-**Bolded** components are associated with routes.
-
-(:exclamation: Remember, the bolded components are created by their
-associated routes, so the nesting of your bolded components must
-_**exactly**_ match the nesting of your routes.)
 
 * **App**
   * **LoginForm**
@@ -13,22 +8,23 @@ _**exactly**_ match the nesting of your routes.)
   * **UserShow**
     * **Followers**
       * List of Followers
-      * Add Follower
+      * Follow user by Search
     * User Stats
     * ActivityFeed
       * UserOnly/User+Followers Toggle
       * User Routes - Title and Description
-        * Map of Route
+        * Map of Route`
         * Add to Own List of Routes Button
         * Like Button
   * **RoutesIndex**
+    * **RoutesIndexItem**
     * RouteDetail
     * RoutesListItem(s)
   * **ExercisesIndex**
     * **NewExerciseForm**
     * ExerciseIndexItem(s)
     * Supplemental Info (ExerciseDetail)
-      * **ExerciseRepo**
+      * **ExerciseRepo** - Preloaded Workouts
       * Exercise Description
     * User's Exercise List
 
@@ -39,6 +35,8 @@ _**exactly**_ match the nesting of your routes.)
 * **component:** `App` **path:** `/`
   * **component** `LoginForm` **path:** `/login`
   * **component** `SignupForm` **path:** `/signup`
+  * **component** `RoutesIndexItem` **path** `/routes/:routeId`
+  * **component** `ExercisesIndexItem` **path** `/route/:exerciseId`
   * **component:** `UserShow` **path:** `users/userId`
     * **component:** `RoutesIndex` **path:** `/routes`
     * **component:** `Followers` **path:** `/followers`
