@@ -2,7 +2,7 @@
 
 [FittySense link][FittySense] **Note:** This should be a link to your production site
 
-[FittySense]: http://www.strava.com
+[FittySense]: https://fittysense.herokuapp.com/
 
 ## Minimum Viable Product
 
