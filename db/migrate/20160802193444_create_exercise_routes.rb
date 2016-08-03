@@ -3,7 +3,7 @@ class CreateExerciseRoutes < ActiveRecord::Migration
     create_table :exercise_routes do |t|
       t.string :title, null: false
       t.text :description, null: false
-      t.JSON :map_info, null: false
+      t.json :map_info, null: false
       t.integer :author_id, null: false
 
       t.timestamps null: false
