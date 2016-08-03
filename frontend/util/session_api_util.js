@@ -5,7 +5,9 @@ const SessionApiUtil = {
       type: "POST",
       data: { user },
       success,
-      error
+      error(xhr) {
+        error("login", xhr.responseJSON);
+      }
     });
   },
 
@@ -27,7 +29,9 @@ const SessionApiUtil = {
       dataType: 'json',
       data: { user },
       success,
-      error
+      error(xhr) {
+        error("signup", xhr.responseJSON);
+      }
     });
   }
 
