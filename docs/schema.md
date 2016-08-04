@@ -21,6 +21,14 @@ description | text      |
 num_reps    | integer   | not null
 difficulty  | integer   | not null, between (1-10)
 
+## Workouts
+column name | data type | details
+------------|-----------|---------------------
+id          |  integer  | not null, primary key
+user_id     |  integer  | not null, foreign key (references users), indexed
+route_id    |  integer  | not null, foreign key (references route), indexed
+exercise_ids|  integer  | not null, foreign key (exercises), array
+
 ## Follows
 column name | data type | details
 ------------|-----------|-----------------------
@@ -28,6 +36,16 @@ id          | integer   | not null, primary key
 follower_id | integer   | not null, foreign key (references users), indexed
 followee_id | integer   | not null, foreign key (references users), indexed
 
+## Feed
+column name   | data type | details
+--------------|-----------|-----------------------
+id            | integer   | not null, primary key
+user_id       | integer   | not null, foreign key (references users), indexed
+workout_id    | integer   | not null, foreign key (references route), indexed
+start_time    | datetime  |
+end_time      | datetime  |
+
+NB: All this stuff is already calculated.  Leave this last!!!!!
 ## Stats
 column name | data type | details
 ------------|-----------|-----------------------

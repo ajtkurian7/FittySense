@@ -1,9 +1,9 @@
 const SessionApiUtil = {
-  logIn(user, success, error) {
+  logIn(formData, success, error) {
     $.ajax({
       url: 'api/session',
       type: "POST",
-      data: { user },
+      data: { user: formData },
       success,
       error(xhr) {
         error("login", xhr.responseJSON);
@@ -22,12 +22,12 @@ const SessionApiUtil = {
     });
   },
 
-  signUp(user, success, error) {
+  signUp(formData, success, error) {
     $.ajax({
       url: '/api/users',
       type: 'POST',
       dataType: 'json',
-      data: { user },
+      data: { user: formData },
       success,
       error(xhr) {
         error("signup", xhr.responseJSON);
@@ -37,3 +37,5 @@ const SessionApiUtil = {
 
 
 };
+
+module.exports = SessionApiUtil;

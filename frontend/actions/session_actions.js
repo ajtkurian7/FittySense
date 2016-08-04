@@ -1,6 +1,7 @@
 const AppDispatcher = require('../dispatcher/dispatcher.js');
 const SessionApiUtil = require('../util/session_api_util.js');
 const hashHistory = require('react-router').hashHistory;
+const ErrorActions = require('./error_actions.js');
 
 const SessionActions = {
   signUp(formData) {

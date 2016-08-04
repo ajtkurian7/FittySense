@@ -1,8 +1,16 @@
 const React = require('react');
 const SessionActions = require('../actions/session_actions.js');
 const SessionStore = require('../stores/session_store.js');
+const ErrorStore = require('../stores/error_store.js');
+const Link = require('react-router').Link;
+
 
 const LogInForm = React.createClass({
+
+  contextTypes: {
+		router: React.PropTypes.object.isRequired
+	},
+
   getInitialState(){
       return {
         email: "",
@@ -12,11 +20,11 @@ const LogInForm = React.createClass({
 
   componentDidMount() {
     this.sessionListener = SessionStore.addListener(this.redirectIfLoggedIn);
-    // this.errorListener = SessionStore.addListener(this.forceUpdate.bind(this));
+    this.errorListener = ErrorStore.addListener(this.forceUpdate.bind(this));
   },
 
   componentWillUnmount() {
-    // this.errorListener.remove();
+    this.errorListener.remove();
     this.sessionListener.remove();
   },
 
@@ -47,24 +55,47 @@ const LogInForm = React.createClass({
 
   },
 
+  fieldErrors(field) {
+    const errors = ErrorStore.formErrors("login");
+
+    if (!errors[field]) { return; }
+
+    const messages = errors[field].map( (errorMsg, i) => {
+      return <li key={ i }>{ errorMsg }</li>;
+    });
+
+    return <ul>{ messages }</ul>;
+  },
+
+
   render(){
     return (
-      <div>
-        <form onSubmit={this.handleSubmit} className="login-form">
-          <label>
-            Email:
-            <input
-              value={this.state.email}
-              onChange={this._updateEmailState}/>
-          </label>
-          <label>
-            Password:
-            <input
-              type="password"
-              value={this.state.password}
-              onChange={this._updatePasswordState}/>
-          </label>
-        </form>
+      <div className="session-page login">
+        <div className="login-form-container">
+          <h1 className="signup-title">Fitty Sense</h1>
+          <p className="signup-title">Log Into Your Account</p>
+
+          <form onSubmit={this._handleSubmit} className="login-form">
+
+              <input
+                value={this.state.email}
+                onChange={this._updateEmailState}
+                placeholder="Email"
+                className="textbox"/>
+
+              <input
+                type="password"
+                value={this.state.password}
+                onChange={this._updatePasswordState}
+                placeholder="Password"
+                className="textbox"/>
+
+              <input type="submit" value="Login" className="button"/>
+              <Link to="/signup" className="link"> Sign Up </Link>
+              {this.fieldErrors('base')}
+          </form>
+
+        </div>
       </div>
     );
   }

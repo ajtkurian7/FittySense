@@ -6,7 +6,7 @@ const ErrorStore = new Store(AppDispatcher);
 let _errors = {};
 let _form = "";
 
-function setErrrors(payload) {
+function setErrors(payload) {
   _errors = payload.errors;
   _form = payload.form;
   ErrorStore.__emitChange();
@@ -42,3 +42,5 @@ ErrorStore.formErrors = function (form) {
 
   return result;
 };
+
+module.exports = ErrorStore;
