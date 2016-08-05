@@ -15,6 +15,22 @@ class User < ActiveRecord::Base
     primary_key: :id
   )
 
+  has_many(
+    :exercises,
+    class_name: "Exercise",
+    foreign_key: :author_id,
+    primary_key: :id
+  )
+
+  has_many(
+    :exercise_routes,
+    class_name: "ExerciseRoute",
+    foreign_key: :author_id,
+    primary_key: :id
+  )
+
+  has_many :workouts
+
   def workout_feed
     feeds = self.feeds.includes(:workout)
 

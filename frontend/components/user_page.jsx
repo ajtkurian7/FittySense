@@ -17,11 +17,9 @@ const UserPage = React.createClass({
       <div>
         <h1>Welcome {this.currentUser()}!</h1>
         <div>
-          <ul>
-            <li>
+          <h2>Activity Feed </h2>
 
-            </li>
-          </ul>
+
         </div>
       </div>
     );
