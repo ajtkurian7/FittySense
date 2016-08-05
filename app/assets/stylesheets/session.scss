@@ -52,12 +52,12 @@
 }
 
 .signup {
-  background: url("signup-page.jpg") no-repeat center center fixed;
+  background: asset-url("signup-page.jpg") no-repeat center center fixed;
   background-size: cover;
 }
 
 .login {
-  background: url("login-page.jpg") no-repeat center center fixed;
+  background: asset-url("login-page.jpg") no-repeat center center fixed;
   background-size: cover;
 }
 
