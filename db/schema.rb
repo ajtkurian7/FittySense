@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160802193444) do
+ActiveRecord::Schema.define(version: 20160805002502) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,30 @@ ActiveRecord::Schema.define(version: 20160802193444) do
 
   add_index "exercise_routes", ["author_id"], name: "index_exercise_routes_on_author_id", using: :btree
 
+  create_table "exercises", force: :cascade do |t|
+    t.string   "title",       null: false
+    t.text     "description"
+    t.integer  "num_reps",    null: false
+    t.integer  "difficulty",  null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "author_id",   null: false
+  end
+
+  add_index "exercises", ["author_id"], name: "index_exercises_on_author_id", using: :btree
+
+  create_table "feeds", force: :cascade do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "workout_id", null: false
+    t.datetime "start_time", null: false
+    t.datetime "end_time",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "feeds", ["user_id"], name: "index_feeds_on_user_id", using: :btree
+  add_index "feeds", ["workout_id"], name: "index_feeds_on_workout_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",           null: false
     t.string   "fname",           null: false
@@ -40,5 +64,16 @@ ActiveRecord::Schema.define(version: 20160802193444) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["session_token"], name: "index_users_on_session_token", unique: true, using: :btree
+
+  create_table "workouts", force: :cascade do |t|
+    t.integer  "user_id",      null: false
+    t.integer  "route_id",     null: false
+    t.integer  "exercise_ids", null: false, array: true
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "workouts", ["route_id"], name: "index_workouts_on_route_id", using: :btree
+  add_index "workouts", ["user_id"], name: "index_workouts_on_user_id", using: :btree
 
 end

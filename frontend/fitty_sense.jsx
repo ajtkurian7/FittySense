@@ -19,7 +19,6 @@ const UserPage = require('./components/user_page.jsx');
 const ExerciseRoutes = require('./components/exercise_routes.jsx');
 const Workouts = require('./components/workouts.jsx');
 const Stats = require('./components/stats.jsx');
-const Feed = require('./components/stats.jsx');
 
 //stores
 const SessionStore = require('./stores/session_store.js');
@@ -32,12 +31,10 @@ const appRouter = (
       <IndexRedirect to="onboarding"/>
       <Route path="login" component = {LogInForm} />
       <Route path="signup" component = {SignUpForm} />
-      <Route path="onboarding" component = {UserPage} onEnter={ _ensureLoggedIn}>
-        <Route path="/feed" component={Feed} />
-        <Route path="/routes" component={ExerciseRoutes} />
-        <Route path="/workouts" component={Workouts} />
-        <Route path="/stats" component={Stats} />
-      </Route>
+      <Route path="onboarding" component = {UserPage} onEnter={ _ensureLoggedIn} />
+      <Route path="routes" component={ExerciseRoutes} />
+      <Route path="workouts" component={Workouts} />
+      <Route path="stats" component={Stats} />
     </Route>
   </Router>
 );

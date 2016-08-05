@@ -1,7 +1,7 @@
 # Schema Information
 
 
-## Routes
+## ExerciseRoutes
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
@@ -19,7 +19,7 @@ route_id    | integer   | not null, foreign key (references route), indexed
 title       | string    | not null
 description | text      |
 num_reps    | integer   | not null
-difficulty  | integer   | not null, between (1-10)
+difficulty  | integer   | not null
 
 ## Workouts
 column name | data type | details

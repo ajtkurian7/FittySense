@@ -1,13 +1,14 @@
 const React = require('react');
+const Link = require('react-router').Link;
 
 const NavBar = React.createClass({
   render () {
     return(
-      <nav>
-        <ul>
+      <nav className="header-nav">
+        <ul className="navbar group">
           <li>
             <Link to="/">
-              <h1>FittySense</h1>
+              <h1>FITTY SENSE</h1>
             </Link>
           </li>
           <li>
@@ -24,3 +25,5 @@ const NavBar = React.createClass({
     );
   }
 });
+
+module.exports = NavBar;

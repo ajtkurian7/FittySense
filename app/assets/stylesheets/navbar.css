@@ -1,0 +1,27 @@
+.header-nav {
+  display: block;
+  border-bottom: 1px solid lightgrey;
+  padding: 5px;
+  height: 35px;
+}
+
+.navbar {
+  display: block;
+}
+
+
+.navbar li {
+  display: block;
+  float: left;
+  vertical-align: -webkit-baseline-middle;
+  margin-right: 75px;
+  height: 38px;
+}
+
+.navbar li:hover {
+  border-bottom: 3px solid rgb(252, 76, 2);
+}
+
+.navbar li h1 {
+  color: rgb(252, 76, 2);
+}

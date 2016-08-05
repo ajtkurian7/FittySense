@@ -5,7 +5,7 @@ const ExerciseRoutes = React.createClass({
     return(
       <div>
         <ul>
-          <li></li>
+          <li>Routes</li>
         </ul>
       </div>
     );

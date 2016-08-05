@@ -3,8 +3,10 @@ const React = require('react');
 const Feed = React.createClass({
   render () {
     return(
-      <div>Feed</div>
+      <ul>Feed</ul>
     );
 
   }
 });
+
+module.exports=Feed;
