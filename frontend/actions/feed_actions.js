@@ -14,3 +14,5 @@ const FeedActions = {
     });
   }
 };
+
+module.exports = FeedActions;

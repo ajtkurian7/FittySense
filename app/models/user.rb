@@ -33,8 +33,19 @@ class User < ActiveRecord::Base
 
   def workout_feed
     feeds = self.feeds.includes(:workout)
+    return_hash = {}
+    feeds.each do |feed|
+      return_hash[feed.id] = {}
+      feed_id = return_hash[feed.id]
 
+      feed_id[:title] = feed.route.title
+      feed_id[:description] = feed.route.description
+      feed_id[:start_time] = feed.start_time.strftime('%r')
+      feed_id[:total_time] =  parse_into_hours(feed.end_time - feed.start_time)
+      feed_id[:date] = feed.start_time.strftime("%A, %B %y, %Y")
+    end
 
+    return_hash
   end
 
   def self.find_by_credentials(email, password)
@@ -60,5 +71,11 @@ class User < ActiveRecord::Base
     self.session_token = SecureRandom.urlsafe_base64(16)
     self.save!
     self.session_token
+  end
+
+  private
+
+  def parse_into_hours(val)
+    (val * 24).to_f.round(2)
   end
 end
