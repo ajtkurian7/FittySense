@@ -1,0 +1,21 @@
+.subheader {
+  display: block;
+  width: 95%;
+  height: 160px;
+  position: relative;
+  border-bottom: 1px solid lightgray;
+  left: 20px;
+  right: -20px;
+}
+
+.subheader h1 {
+  display: block;
+  margin: 20px 0 20px;
+
+}
+
+.subheader button {
+  height: 50px;
+  margin-left: 0;
+  border-radius: 3px;
+}

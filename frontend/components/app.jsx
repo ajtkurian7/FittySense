@@ -11,7 +11,7 @@ const App = React.createClass({
 
   render () {
     return(
-      <div>
+      <div className="app">
         {this.showNavBar()}
         {this.props.children}
       </div>
