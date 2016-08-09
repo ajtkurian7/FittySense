@@ -17,6 +17,7 @@ const LogInForm = require('./components/login_form.jsx');
 const SignUpForm = require('./components/signup_form.jsx');
 const UserPage = require('./components/user_page.jsx');
 const ExerciseRoutes = require('./components/exercise_routes.jsx');
+const Exercises = require('./components/exercises.jsx');
 const Workouts = require('./components/workouts.jsx');
 const Stats = require('./components/stats.jsx');
 const RouteBuilder = require('./components/route_builder.jsx');
@@ -33,10 +34,10 @@ const appRouter = (
       <Route path="login" component = {LogInForm} />
       <Route path="signup" component = {SignUpForm} />
       <Route path="onboarding" component = {UserPage} onEnter={ _ensureLoggedIn} />
-      <Route path="routes" component={ExerciseRoutes} />
-      <Route path="route_builder" component={ RouteBuilder } />
-      <Route path="workouts" component={Workouts} />
-      <Route path="stats" component={Stats} />
+      <Route path="routes" component={ExerciseRoutes} onEnter={ _ensureLoggedIn} />
+      <Route path="route_builder" component={ RouteBuilder } onEnter={ _ensureLoggedIn} />
+      <Route path="exercises" component={Exercises} onEnter={ _ensureLoggedIn} />
+      <Route path="stats" component={Stats} onEnter={ _ensureLoggedIn} />
     </Route>
   </Router>
 );

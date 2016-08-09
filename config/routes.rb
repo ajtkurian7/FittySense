@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :feeds, only: [:index]
     resource :session, only: [:create, :destroy, :show]
     resources :exercise_routes, only: [:index]
+    resources :exercises, only: [:index]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

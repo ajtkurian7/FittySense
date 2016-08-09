@@ -15,7 +15,7 @@ const NavBar = React.createClass({
             <Link to="/routes">My Routes</Link>
           </li>
           <li>
-            <Link to="/workouts">My Workouts</Link>
+            <Link to="/exercises">My Exercises</Link>
           </li>
           <li>
             <Link to="/stats">My Stats</Link>
