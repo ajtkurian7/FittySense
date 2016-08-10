@@ -9,6 +9,17 @@ const _addExercises = (arr) => {
   _exercises = arr;
 };
 
+const _deleteExercise = (exercise) => {
+  let retArr = [];
+  for (var i = 0; i < _exercises.length; i++) {
+      if (_exercises[i].id !== exercise.id) {
+        retArr.push(Object.assign({}, _exercises[i]));
+      }
+  }
+
+  _exercises = retArr;
+};
+
 ExerciseStore.all = () => {
   let returnArr = [];
 
@@ -27,7 +38,10 @@ ExerciseStore.__onDispatch = payload => {
       _addExercises(payload.exercises);
       ExerciseStore.__emitChange();
       break;
-
+    case "DELETE_EXERCISE":
+      _deleteExercise(payload.exercise);
+      ExerciseStore.__emitChange();
+      break;
   }
 };
 

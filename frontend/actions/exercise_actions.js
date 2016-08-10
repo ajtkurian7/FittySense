@@ -6,6 +6,25 @@ const ExerciseActions = {
     ExerciseApiUtil.fetchAllExercises(this.receiveSavedExercises);
   },
 
+  deleteExercise(id) {
+    ExerciseApiUtil.deleteExercise(id, this.deletedExercise);
+  },
+
+  submitExercise (formData) {
+    ExerciseApiUtil.submitExercise(formData, this.receiveSavedExercises);
+  },
+
+  updateExercise (id, formData) {
+    ExerciseApiUtil.updateExercise(id, formData, this.receiveSavedExercises);
+  },
+
+  deletedExercise(exercise) {
+    AppDispatcher.dispatch({
+      actionType: "DELETE_EXERCISE",
+      exercise: exercise
+    });
+  },
+
   receiveSavedExercises(exercises) {
     AppDispatcher.dispatch({
       actionType: "SAVED_EXERCISES",

@@ -1,6 +1,7 @@
 // React Requirements
 const React = require('react');
 const ReactDOM = require('react-dom');
+const Modal = require('react-modal');
 
 //Routes
 const ReactRouter = require('react-router');
@@ -24,7 +25,7 @@ const RouteBuilder = require('./components/route_builder.jsx');
 
 //stores
 const SessionStore = require('./stores/session_store.js');
-
+const SessionActions = require('./actions/session_actions.js');
 //Auth
 
 const appRouter = (
@@ -50,6 +51,10 @@ function _ensureLoggedIn(nextState, replace) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
+  if (window.currentUser) {
+    SessionActions.receiveCurrentUser(window.currentUser);
+  }
   const root = document.getElementById('content');
+  Modal.setAppElement(document.body);
   ReactDOM.render(appRouter, root);
 });
