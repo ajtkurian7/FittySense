@@ -37,6 +37,8 @@ const RouteBuilder = React.createClass({
 
     this.map = new google.maps.Map(mapDOMNode, mapOptions);
 
+    this.searchBox();
+
     this.map.addListener("click", (event) => {
       let marker = new google.maps.Marker ({
         position: event.latLng,
@@ -53,6 +55,34 @@ const RouteBuilder = React.createClass({
         this.setDirections(this.map, this.markers, this);
       }
     });
+
+  },
+
+  searchBox() {
+    let input = ReactDOM.findDOMNode(this.refs.pacInput);
+    let searchBox = new google.maps.places.SearchBox(input);
+
+
+    this.map.addListener("bounds_changed", () => {
+      searchBox.setBounds(this.map.getBounds());
+    });
+
+    searchBox.addListener('places_changed', () => {
+      let places = searchBox.getPlaces();
+      let bounds = new google.maps.LatLngBounds();
+      places.forEach((place) => {
+        if (place.geometry.viewport) {
+          bounds.union(place.geometry.viewport);
+        } else {
+          bounds.extend(place.gemetry.location);
+        }
+      });
+      this.map.fitBounds(bounds);
+    });
+
+
+
+
 
   },
 
@@ -83,6 +113,7 @@ const RouteBuilder = React.createClass({
     }, function(directionsResult, status) {
 
       if (status === 'OK') {
+        that.directionsResult = directionsResult;
         that.renderStartEndMarkers();
         that.directionsDisplay.setDirections(directionsResult);
 
@@ -154,7 +185,7 @@ const RouteBuilder = React.createClass({
 
 
   _handleClick(e) {
-
+    debugger
   },
 
   _handleExerciseClick(e) {
@@ -174,11 +205,45 @@ const RouteBuilder = React.createClass({
     setTimeout(() => marker.info.close(), 5000);
   },
 
+  createPositionObject() {
+    let obj = {};
+    this.markers.forEach( (marker,i) => {
+      obj[i] = {};
+      obj[i].lat = marker.position.lat();
+      obj[i].lng = marker.position.lng();
+      // obj[i].exercise = marker.exercise;
+      obj.distance = this.totalDistance();
+    });
+
+    return obj;
+  },
+
+  createExerciseObject() {
+    let arr = [];
+    this.markers.forEach((marker, i) => {
+      if (marker.exercise) {
+        arr.push(marker.exercise.id);
+      }
+    });
+
+    return arr;
+  },
+
+  totalDistance () {
+    let sum = 0;
+    this.directionsResult.routes[0].legs.forEach( (leg) => {
+      sum += leg.distance.value; //in meters
+    });
+
+    return +((sum/1609.34).toFixed(2)); // round to 2 decimal places in miles
+  },
+
   render () {
     return(
       <div className="route-builder">
         <div className="map" ref="map">Map</div>
         <button className="button" onClick={this._handleClick}>Submit</button>
+        <input ref="pacInput" className="controls" type="text" placeholder="Search Box" />
         <Modal
           isOpen={ this.state.modalOpen }
           onRequestClose={ this.closeModal }
@@ -210,19 +275,3 @@ const RouteBuilder = React.createClass({
 });
 
 module.exports = RouteBuilder;
-
-// <div className="display-window">
-//   <label>
-//     Please Select an Exercise from your Personal List
-//     <select>
-//       <option>{"-"}</option>
-//       {
-//         this.state.exercises.map((exercise, i) => {
-//           return(
-//             <option key={i}>{exercise.title}</option>
-//           );
-//         })
-//       }
-//     </select>
-//   </label>
-// </div>

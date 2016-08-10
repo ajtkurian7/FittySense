@@ -6,11 +6,11 @@ module.exports = {
     right           : 0,
     bottom          : 0,
     backgroundColor : 'rgba(255, 255, 255, 0)',
-    zIndex          : 10
+    zIndex          : 5
   },
   content : {
     position        : 'fixed',
-    height          : '50px',
+    height          : '100px',
     width           : '400px',
     top             : '120px',
     margin          : '0 auto',
