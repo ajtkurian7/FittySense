@@ -7,7 +7,6 @@ class Api::FeedsController < ApplicationController
 
   def create
     @feed = Feed.new(feed_params)
-    debugger
     if @feed.save
       render :index
     else
