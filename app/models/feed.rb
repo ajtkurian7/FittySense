@@ -1,5 +1,5 @@
 class Feed < ActiveRecord::Base
-  validates :user_id, :workout_id, presence: true;
+  validates :user_id, :route_id, presence: true;
 
   belongs_to(
     :user,

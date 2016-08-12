@@ -9,7 +9,7 @@ const FeedListItem = require('./feed_list_item.jsx');
 
 const UserPage = React.createClass({
   getInitialState() {
-    return { feeds: [] };
+    return { feeds: [], };
   },
 
   componentDidMount () {
@@ -25,11 +25,14 @@ const UserPage = React.createClass({
     this.setState({ feeds: FeedStore.all() });
   },
 
+
   currentUser () {
     let currentUser =  SessionStore.currentUser();
     let fullName = currentUser.fname + ' ' + currentUser.lname;
     return fullName;
   },
+
+
 
 
 

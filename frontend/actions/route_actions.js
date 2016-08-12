@@ -11,10 +11,21 @@ const RouteActions = {
     RouteApiUtil.postRoute(formData, this.receiveSavedRoutes);
   },
 
+  deleteRoute(id){
+    RouteApiUtil.deleteRoute(id, this.deletedRoute);
+  },
+
   receiveSavedRoutes(routes) {
     AppDispatcher.dispatch({
       actionType: "SAVED_ROUTES",
       routes: routes
+    });
+  },
+
+  deletedRoute(route) {
+    AppDispatcher.dispatch({
+      actionType: "DELETE_ROUTE",
+      route: route
     });
   }
 };

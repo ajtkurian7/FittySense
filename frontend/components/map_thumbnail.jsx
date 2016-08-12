@@ -7,7 +7,7 @@ const MapThumbnail = React.createClass({
 
   staticMapUrl() {
     let urlBase = "https://maps.googleapis.com/maps/api/staticmap?";
-    let size = "size=300x188";
+    let size = `size=${this.props.size}`;
     let path = `&path=weight:3%7Ccolor:black%7Cenc:${this.encodePath()}`;
     let key = "&key=AIzaSyDCJtkiY4Xo-vFaA8AmZ1bKbOxRssNjGMY";
 
@@ -17,7 +17,7 @@ const MapThumbnail = React.createClass({
 
   render () {
     return(
-      <div className="map-thumb">
+      <div className={this.props.c}>
         <img src={this.staticMapUrl()} alt="Map Thumbnail"/>
       </div>
     );

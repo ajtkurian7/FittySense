@@ -17,6 +17,15 @@ const RouteApiUtil = {
       data: { route: formData },
       success,
     });
+  },
+
+  deleteRoute(id, success) {
+    $.ajax({
+      url: 'api/exercise_routes/' + id,
+      data: { route_id: id },
+      type: "DELETE",
+      success
+    });
   }
 };
 

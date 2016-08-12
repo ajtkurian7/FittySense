@@ -10,7 +10,7 @@ const FeedApiUtil = {
     });
   },
 
-  postUserFeed(formData) {
+  postUserFeed(formData, success) {
     $.ajax({
       url: 'api/feeds',
       type: 'POST',

@@ -11,12 +11,13 @@ const ExerciseSelector = require("./exercise_selector.jsx");
 const RouteSubmitForm = require("./route_submit_form.jsx");
 
 const RouteBuilder = React.createClass({
-  markers: [],
+
 
   getInitialState() {
     return (
       {
         exercises: [],
+        markers: [],
         modalOpen: false,
         selectedMarker: "",
         exerciseSelect: false
@@ -41,7 +42,7 @@ const RouteBuilder = React.createClass({
   },
 
   _onRoutesChange() {
-    hashHistory.push("/");
+    hashHistory.push("/routes");
   },
 
   initMap () {
@@ -66,11 +67,11 @@ const RouteBuilder = React.createClass({
 
 
 
-      this.markers.push(marker);
+      this.state.markers.push(marker);
 
-      if (this.markers.length > 1) {
+      if (this.state.markers.length > 1) {
 
-        this.setDirections(this.map, this.markers, this);
+        this.setDirections(this.map, this.state.markers, this);
       }
     });
 
@@ -140,19 +141,19 @@ const RouteBuilder = React.createClass({
   },
 
   renderStartEndMarkers () {
-    let start = this.markers[0];
-    let stop = this.markers[this.markers.length - 1];
+    let start = this.state.markers[0];
+    let stop = this.state.markers[this.state.markers.length - 1];
     start.setIcon('http://maps.google.com/mapfiles/kml/paddle/go.png');
     start.setTitle("Exercise 1");
     stop.setIcon('http://maps.google.com/mapfiles/kml/paddle/stop.png');
-    stop.setTitle("Exercise " + this.markers.length);
+    stop.setTitle("Exercise " + this.state.markers.length);
 
     this.renderMiddleMarkers();
     this.renderMarkerInfoWindows();
   },
 
   renderMiddleMarkers () {
-    this.markers.slice(1,-1).forEach((marker, i)=> {
+    this.state.markers.slice(1,-1).forEach((marker, i)=> {
       marker.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png');
       marker.setTitle("Exercise " + (i + 2));
 
@@ -162,7 +163,7 @@ const RouteBuilder = React.createClass({
 
   renderMarkerInfoWindows () {
 
-    this.markers.forEach((marker, i) => {
+    this.state.markers.forEach((marker, i) => {
       if (!marker.info) {
         marker.info = new google.maps.InfoWindow({
           content: `Click to Add Workout`,
@@ -171,7 +172,7 @@ const RouteBuilder = React.createClass({
 
       marker.addListener("dragend", () => {
         this.directionsDisplay.setMap(null);
-        this.setDirections(this.map, this.markers, this);
+        this.setDirections(this.map, this.state.markers, this);
       });
 
       marker.addListener('click', () => {
@@ -204,7 +205,7 @@ const RouteBuilder = React.createClass({
   _handleExerciseClick(e) {
     let exerciseIndex = $(e.target).siblings('select').val();
     let exercise = this.state.exercises[exerciseIndex];
-    let marker = this.markers[this.state.selectedMarker];
+    let marker = this.state.markers[this.state.selectedMarker];
     marker.exercise = exercise;
 
     this.closeModal();
@@ -220,7 +221,7 @@ const RouteBuilder = React.createClass({
 
   createPositionObject() {
     let obj = {};
-    this.markers.forEach( (marker,i) => {
+    this.state.markers.forEach( (marker,i) => {
       obj[i] = {};
       obj[i].lat = marker.position.lat();
       obj[i].lng = marker.position.lng();
@@ -233,7 +234,7 @@ const RouteBuilder = React.createClass({
 
   createExerciseArray() {
     let arr = [];
-    this.markers.forEach((marker, i) => {
+    this.state.markers.forEach((marker, i) => {
       if (marker.exercise) {
         arr.push(marker.exercise.id);
       } else {

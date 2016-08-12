@@ -17,6 +17,12 @@ class Api::ExerciseRoutesController < ApplicationController
     end
   end
 
+  def destroy
+    @route = ExerciseRoute.find_by_id(params[:route_id])
+    @route.destroy!
+    render json: @route
+  end
+
   private
 
   def route_params

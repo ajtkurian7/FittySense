@@ -66,7 +66,7 @@ const EditExerciseForm = React.createClass({
 
   render () {
     return(
-      <form onSubmit={this._handleSubmit}>
+      <form onSubmit={this._handleSubmit} className="login-form" >
         <input
           value={this.state.title}
           onChange={this._updateTitleState}

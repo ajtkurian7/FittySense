@@ -28,6 +28,10 @@ const ExerciseRoutes = React.createClass({
     });
   },
 
+  _handleDelete (id) {
+    RouteActions.deleteRoute(id);
+  },
+
   render () {
     return(
       <div>
@@ -37,7 +41,7 @@ const ExerciseRoutes = React.createClass({
         </div>
         <div className="route-items group">
           {this.state.routes.map((route, i) => {
-            return <ExerciseRoutesItem key={i} route={route} />;
+            return <ExerciseRoutesItem key={i} route={route} del={this._handleDelete} />;
           })}
         </div>
       </div>
