@@ -1,5 +1,5 @@
 const React = require('react');
-const ExerciseStore = require('../stores/exercise_store.jsx');
+const ExerciseStore = require('../stores/exercise_store.js');
 
 const Stats = React.createClass({
   getInitialState () {

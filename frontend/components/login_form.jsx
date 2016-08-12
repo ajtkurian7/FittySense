@@ -55,6 +55,17 @@ const LogInForm = React.createClass({
 
   },
 
+  _handleGuestLogin(e) {
+    e.preventDefault();
+
+    const guestData = {
+      email: "50cent@gunit.com",
+      password: "123456"
+    };
+
+    SessionActions.logIn(guestData);
+  },
+
   fieldErrors(field) {
     const errors = ErrorStore.formErrors("login");
 
@@ -92,6 +103,7 @@ const LogInForm = React.createClass({
 
               <input type="submit" value="Login" className="button"/>
               <Link to="/signup" className="link"> Sign Up </Link>
+              <button className="button" onClick={this._handleGuestLogin}>Guest Login</button>
               {this.fieldErrors('base')}
           </form>
 

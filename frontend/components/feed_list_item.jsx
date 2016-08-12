@@ -34,7 +34,7 @@ const FeedListItem = React.createClass({
 
   _distance () {
     if (this.state.routes.length) {
-      return <li>{this._findRoute().map_info.distance} hr(s)</li>;
+      return <li>{this._findRoute().map_info.distance} mi</li>;
     } else {
       return [];
     }
@@ -71,7 +71,7 @@ const FeedListItem = React.createClass({
           <li className="description">{this.props.feeds.description}</li>
           <ul className="stats group">
             <li>{this.props.feeds.start_time}</li>
-            <li>{this.props.feeds.total_time} hrs</li>
+            <li>{this.props.feeds.total_time} hr(s)</li>
             {this._distance()}
           </ul>
         </ul>
