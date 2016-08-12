@@ -14,6 +14,11 @@ const NavBar = React.createClass({
     SessionActions.logOut();
   },
 
+  _handleAvatarClick () {
+    hashHistory.push("/profile");
+  },
+
+
   componentWillUnmount () {
     this.sessionStoreListener.remove();
   },
@@ -40,9 +45,12 @@ const NavBar = React.createClass({
           <li>
             <Link to="/stats">My Stats</Link>
           </li>
+
           <button className="button" onClick={this._handleClick}>
             Log Out
           </button>
+          <img src="https://cdn0.vox-cdn.com/images/verge/default-avatar.v9899025.gif"
+            alt="avatar" onClick={this._handleAvatarClick}/>
         </ul>
       </nav>
     );

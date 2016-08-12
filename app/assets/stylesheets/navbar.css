@@ -27,12 +27,20 @@
   color: rgb(252, 76, 2);
 }
 
+
+.selected-tab {
+  border-bottom: 3px solid rgb(252, 76, 2);
+}
+
+.navbar img {
+  float: right;
+  height: 40px;
+  width: 40px;
+  margin-right: 20px;
+}
+
 .navbar .button {
   float: right;
   margin-right: 20px;
   height: 20px;
-}
-
-.selected-tab {
-  border-bottom: 3px solid rgb(252, 76, 2);
 }

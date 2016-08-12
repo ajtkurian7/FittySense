@@ -22,6 +22,7 @@ const Exercises = require('./components/exercises.jsx');
 const Workouts = require('./components/workouts.jsx');
 const Stats = require('./components/stats.jsx');
 const RouteBuilder = require('./components/route_builder.jsx');
+const Profile = require('./components/profile.jsx')
 
 //stores
 const SessionStore = require('./stores/session_store.js');
@@ -39,6 +40,7 @@ const appRouter = (
       <Route path="route_builder" component={ RouteBuilder } onEnter={ _ensureLoggedIn} />
       <Route path="exercises" component={Exercises} onEnter={ _ensureLoggedIn} />
       <Route path="stats" component={Stats} onEnter={ _ensureLoggedIn} />
+      <Route path="profile" component={Profile} onEnter={ _ensureLoggedIn} />
     </Route>
   </Router>
 );
