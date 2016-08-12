@@ -62,13 +62,26 @@ const Stats = React.createClass({
     }
   },
 
+  _averageSpeed() {
+    if (this.state.feeds.length) {
+      return (this._totalStats().distance / this._totalStats().totalTime).toFixed(2);
+    } else {
+      return 0;
+    }
+  },
+
   render () {
     return(
       <div className="stats">
         <h1>My Stats</h1>
-        <p>Number of Miles Ran:  {this._totalStats().distance} miles</p>
-        <p>Number of Hours Working Out:  {this._totalStats().totalTime} hr(s)</p>
-        <p>Number of Exercises Completed:  {this._totalStats().numExercises} Exercises</p>
+        <table className="table">
+          <tbody>
+          <tr><th>Number of Miles Ran</th>  <td>{this._totalStats().distance} miles</td></tr>
+          <tr><th>Number of Hours Working Out:</th> <td>{this._totalStats().totalTime} hr(s)</td></tr>
+          <tr><th>Average Speed</th> <td>{this._averageSpeed()} mph</td> </tr>
+          <tr><th>Number of Exercises Completed</th>  <td>{this._totalStats().numExercises} Exercises</td></tr>
+          </tbody>
+        </table>
       </div>
     );
   }
