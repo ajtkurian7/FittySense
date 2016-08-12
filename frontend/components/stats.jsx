@@ -48,7 +48,7 @@ const Stats = React.createClass({
       this.state.feeds.forEach((feed) => {
         this.state.routes.forEach((route) => {
           if(feed.route_id === route.id) {
-              distance +=route.map_info.distance;
+              distance += parseFloat(route.map_info.distance);
               totalTime += feed.total_time;
               totalExercises += route.exercise_ids.length;
           }
