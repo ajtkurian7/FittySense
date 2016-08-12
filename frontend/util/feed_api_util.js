@@ -8,6 +8,15 @@ const FeedApiUtil = {
       data: { user_id: SessionStore.currentUser().id },
       success
     });
+  },
+
+  postUserFeed(formData) {
+    $.ajax({
+      url: 'api/feeds',
+      type: 'POST',
+      data: { feed: formData },
+      success
+    });
   }
 };
 

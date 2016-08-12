@@ -1,8 +1,9 @@
 .header-nav {
   display: block;
-  border-bottom: 1px solid lightgrey;
   padding: 5px;
-  height: 35px;
+  margin: 0 auto;
+  max-width: 900px;
+  min-width: 800px;
 }
 
 .navbar {
@@ -24,4 +25,14 @@
 
 .navbar li h1 {
   color: rgb(252, 76, 2);
+}
+
+.navbar .button {
+  float: right;
+  margin-right: 20px;
+  height: 20px;
+}
+
+.selected-tab {
+  border-bottom: 3px solid rgb(252, 76, 2);
 }

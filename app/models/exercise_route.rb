@@ -7,4 +7,13 @@ class ExerciseRoute < ActiveRecord::Base
     foreign_key: :author_id,
     primary_key: :id
   )
+
+  has_many(
+    :feeds,
+    class_name: "ExerciseRoute",
+    foreign_key: :route_id,
+    primary_key: :id,
+    dependent: :destroy
+  )
+
 end

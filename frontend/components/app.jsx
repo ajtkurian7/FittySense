@@ -5,15 +5,21 @@ const NavBar = require('./navbar.jsx');
 const App = React.createClass({
   showNavBar () {
     if (SessionStore.isUserLoggedIn()) {
-      return <NavBar />;
+      return(
+        <div className="nav">
+          <NavBar />
+        </div>
+      );
     } else {return;}
   },
 
   render () {
     return(
       <div className="app">
-        {this.showNavBar()}
-        {this.props.children}
+          {this.showNavBar()}
+        <div className="children">
+          {this.props.children}
+        </div>
       </div>
     );
   }

@@ -1,0 +1,55 @@
+.feed-page{
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.feed-page > h1 {
+  margin-bottom: 20px;
+}
+
+.feed-page > p {
+  margin-bottom: 80px;
+}
+
+.feed-page h2 {
+  margin-bottom: 20px;
+}
+
+
+
+.feed-item {
+  display: block;
+  padding: 15px;
+  border-left: 4px solid lightgray;
+  width: 350px;
+  margin-left: 40px;
+  padding-bottom: 30px;
+  padding-top: 30px;
+}
+
+
+
+.feed-item .stats li {
+  float: left;
+  font-size: 12px;
+  margin-right: 10px
+}
+
+.feed-item .stats {
+  display: block;
+  margin-top: 10px;
+}
+
+.feed-item .date{
+  display: block;
+  font-size: 10px;
+  position: relative;
+  top: -5px;
+  left: -20px;
+}
+
+.feed-item .title{
+  display: block;
+  margin-bottom: 10px;
+  font-size: 24px;
+}

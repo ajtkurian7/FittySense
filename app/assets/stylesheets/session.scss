@@ -2,11 +2,12 @@
 .login-form-container  {
   display: block;
   position: relative;
-  top: 300px;
   margin: auto;
+  top: 20vw;
   width: 400px;
   height: 500px;
-  background-color: white;
+  background-color: rgba(0,0,0,0.3);
+  color: white;
   border-radius: 5px;
   border: 5px solid lightgray;
 }
@@ -31,6 +32,10 @@
   margin: 8px 0 0 0 ;
 }
 
+.login-form input:not(.button){
+  color: black;
+}
+
 .login-form .textbox {
   background-color: white;
 
@@ -41,8 +46,10 @@
 
 .session-page {
   display: block;
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  left: 0;
 }
 
 .signup {

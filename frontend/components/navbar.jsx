@@ -28,7 +28,7 @@ const NavBar = React.createClass({
         <ul className="navbar group">
           <li>
             <Link to="/">
-              <h1>FITTY SENSE</h1>
+              <h1>FiTTY SENSE</h1>
             </Link>
           </li>
           <li>

@@ -1,0 +1,16 @@
+.app {
+  display: block;
+}
+
+.app .children{
+  max-width: 900px;
+  margin: 0 auto;
+  min-width: 800px;
+  height: 100%;
+}
+
+.app .nav {
+  display: block;
+  height: 45px;
+  border-bottom: 1px solid lightgrey;
+}

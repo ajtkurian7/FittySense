@@ -1,0 +1,62 @@
+.map-thumb{
+  width: 300px;
+  height: 188px;
+}
+
+.route-item{
+  display: block;
+  float: left;
+  border: 1px solid lightgray;
+  width: 300px;
+  padding: 20px;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.route-item .title{
+  display: block;
+  margin: 10px auto;
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.route-item .details{
+  text-align: center;
+  font-size: 15px;
+  margin-bottom: 10px;
+
+}
+
+.route-item .created{
+  margin-top: 10px;
+  text-align: center;
+  font-size: 10px;
+}
+
+.route-item .stats{
+  text-align: center;
+  font-size: 12px;
+}
+
+.route-item:hover {
+  box-shadow: 0px 0px 58px -9px rgba(0,0,0,0.75);
+
+}
+
+.route-item .thumb{
+  border: 1px solid lightgray;
+}
+
+.buttons{
+  width: 80%;
+  margin: 15px auto;
+}
+
+.add-to-feed{
+  float: left;
+}
+
+.delete-route{
+  float: right;
+}

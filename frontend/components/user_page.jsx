@@ -5,6 +5,7 @@ const SessionActions = require('../actions/session_actions.js');
 const Feed = require('./feed.jsx');
 const FeedStore = require('../stores/feed_store.js');
 const FeedActions = require('../actions/feed_actions.js');
+const FeedListItem = require('./feed_list_item.jsx');
 
 const UserPage = React.createClass({
   getInitialState() {
@@ -30,34 +31,24 @@ const UserPage = React.createClass({
     return fullName;
   },
 
-  feedList () {
-    return this.state.feeds.map((el, i) => {
-      return(
-        <li key={i} className="feed-item">
-          <ul>
-            <li>{el.date}</li>
-            <li>{el.title}</li>
-            <li>{el.description}</li>
-            <li>Started at:{el.start_time}</li>
-            <li>Total time: {el.total_time} hrs</li>
-          </ul>
-
-        </li>
-      );
-    });
-  },
 
 
   render () {
 
     return (
-      <div>
+      <div className="feed-page">
         <h1>Welcome {this.currentUser()}!</h1>
+        <p>
+          Check out some of your most recent workouts! <br/>
+          Then start adding runs and workouts to see more of your activites
+          pop up!
+        </p>
         <div>
           <h2>Activity Feed </h2>
-          <ul>
-            {this.feedList()}
-          </ul>
+
+            {this.state.feeds.map((feed, i) => {
+              return <FeedListItem key={i} feeds={feed}/>;
+            })}
 
         </div>
       </div>

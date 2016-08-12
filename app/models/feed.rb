@@ -9,17 +9,12 @@ class Feed < ActiveRecord::Base
   )
 
   belongs_to(
-    :workout,
-    class_name: "Workout",
-    foreign_key: :workout_id,
+    :exercise_route,
+    class_name: "ExerciseRoute",
+    foreign_key: :route_id,
     primary_key: :id
   )
 
-  has_one(
-    :exercise_route,
-    through: :workout,
-    source: :exercise_route
-  )
 
   def title
     exercise_route.title

@@ -2,28 +2,46 @@ const React = require('react');
 const ReactDOM = require('react-dom');
 const RouteActions = require('../actions/route_actions.js');
 const ExerciseStore = require('../stores/exercise_store.js');
+const RouteStore = require('../stores/route_store.js');
 const ExerciseActions = require('../actions/exercise_actions.js');
 const Modal = require('react-modal');
 const modalMapStyle = require('./modal_map_style.js');
+const hashHistory = require("react-router").hashHistory;
+const ExerciseSelector = require("./exercise_selector.jsx");
+const RouteSubmitForm = require("./route_submit_form.jsx");
 
 const RouteBuilder = React.createClass({
   markers: [],
+
   getInitialState() {
-    return { exercises: [], modalOpen: false, selectedMarker: "" };
+    return (
+      {
+        exercises: [],
+        modalOpen: false,
+        selectedMarker: "",
+        exerciseSelect: false
+      }
+    );
   },
 
   componentDidMount() {
-    this.exerciseStoreListener = ExerciseStore.addListener(this._onChange);
+    this.exerciseStoreListener = ExerciseStore.addListener(this._onExerciseChange);
+    this.routeStoreListener = RouteStore.addListener(this._onRoutesChange);
     ExerciseActions.fetchAllExercises();
     this.initMap();
   },
 
   componentWillUnmount() {
     this.exerciseStoreListener.remove();
+    this.routeStoreListener.remove();
   },
 
-  _onChange() {
+  _onExerciseChange() {
     this.setState({ exercises: ExerciseStore.all() });
+  },
+
+  _onRoutesChange() {
+    hashHistory.push("/");
   },
 
   initMap () {
@@ -79,11 +97,6 @@ const RouteBuilder = React.createClass({
       });
       this.map.fitBounds(bounds);
     });
-
-
-
-
-
   },
 
   setDirections(map, markers, that) {
@@ -148,10 +161,13 @@ const RouteBuilder = React.createClass({
   },
 
   renderMarkerInfoWindows () {
+
     this.markers.forEach((marker, i) => {
-      marker.info = new google.maps.InfoWindow({
-        content: `Click to Add Workout`,
-      });
+      if (!marker.info) {
+        marker.info = new google.maps.InfoWindow({
+          content: `Click to Add Workout`,
+        });
+      }
 
       marker.addListener("dragend", () => {
         this.directionsDisplay.setMap(null);
@@ -159,7 +175,7 @@ const RouteBuilder = React.createClass({
       });
 
       marker.addListener('click', () => {
-        this.setState({ selectedMarker: i });
+        this.setState({ selectedMarker: i, exerciseSelect: true });
         this.openModal();
 
       });
@@ -184,9 +200,6 @@ const RouteBuilder = React.createClass({
   },
 
 
-  _handleClick(e) {
-    debugger
-  },
 
   _handleExerciseClick(e) {
     let exerciseIndex = $(e.target).siblings('select').val();
@@ -218,11 +231,13 @@ const RouteBuilder = React.createClass({
     return obj;
   },
 
-  createExerciseObject() {
+  createExerciseArray() {
     let arr = [];
     this.markers.forEach((marker, i) => {
       if (marker.exercise) {
         arr.push(marker.exercise.id);
+      } else {
+        arr.push(-1);
       }
     });
 
@@ -238,36 +253,43 @@ const RouteBuilder = React.createClass({
     return +((sum/1609.34).toFixed(2)); // round to 2 decimal places in miles
   },
 
+  _handleClick(e) {
+    this.setState({exerciseSelect: false, modalOpen: true});
+  },
+
+  _handleFormClick() {
+    this.closeModal();
+
+  },
+
   render () {
+    let modal;
+    if (this.state.exerciseSelect) {
+      modal = <ExerciseSelector exercises={ this.state.exercises }
+                                click={ this._handleExerciseClick }/>;
+
+      modalMapStyle.content.height = "100px";
+
+    } else {
+      modal = <RouteSubmitForm exercises={ this.createExerciseArray }
+                               position={ this.createPositionObject }
+                               callback={ this._handleFormClick }/>;
+
+      modalMapStyle.content.height = "250px";
+    }
+
     return(
       <div className="route-builder">
-        <div className="map" ref="map">Map</div>
+        <div className="map" ref="map"></div>
         <button className="button" onClick={this._handleClick}>Submit</button>
         <input ref="pacInput" className="controls" type="text" placeholder="Search Box" />
         <Modal
           isOpen={ this.state.modalOpen }
           onRequestClose={ this.closeModal }
           style={ modalMapStyle }>
-          <div className="exercise-selector">
 
-            <p>
-              Please Select an Exercise for this Marker:
-            </p>
-            <select>
-              <option value={-1}>{"-"}</option>
-              {
-                this.state.exercises.map((exercise, i) => {
-                  return(
-                    <option key={i} value={i}>{exercise.title}</option>
-                  );
-                })
-              }
-            </select>
-            <button onClick={ this._handleExerciseClick } className="button">
-              Select Exercise
-            </button>
+          { modal }
 
-        </div>
         </Modal>
       </div>
     );

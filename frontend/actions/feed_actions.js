@@ -7,6 +7,10 @@ const FeedActions = {
     FeedApiUtil.fetchUserRoutes(this.receiveUserRoutes);
   },
 
+  postUserFeed(formData) {
+    FeedApiUtil.postUserFeed(formData, this.receiveUserRoutes);
+  },
+
   receiveUserRoutes(routes) {
     AppDispatcher.dispatch({
       actionType: "ALL_ROUTES",

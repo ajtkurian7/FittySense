@@ -7,6 +7,10 @@ const RouteActions = {
     RouteApiUtil.fetchAllRoutes(this.receiveSavedRoutes);
   },
 
+  postRoute(formData) {
+    RouteApiUtil.postRoute(formData, this.receiveSavedRoutes);
+  },
+
   receiveSavedRoutes(routes) {
     AppDispatcher.dispatch({
       actionType: "SAVED_ROUTES",

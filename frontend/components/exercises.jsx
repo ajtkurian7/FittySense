@@ -65,7 +65,7 @@ const Exercises = React.createClass({
           </button>
         </div>
 
-        <table>
+        <table className="table">
           <thead>
             <tr>
               <th>Title</th>

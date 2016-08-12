@@ -35,7 +35,7 @@ const ExerciseRoutes = React.createClass({
           <h1>My Routes</h1>
           <button className="button" onClick={this._handleClick}>Create a New Route</button>
         </div>
-        <div>
+        <div className="route-items group">
           {this.state.routes.map((route, i) => {
             return <ExerciseRoutesItem key={i} route={route} />;
           })}

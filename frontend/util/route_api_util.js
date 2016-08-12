@@ -8,6 +8,15 @@ const RouteApiUtil = {
       data: { user_id: SessionStore.currentUser().id },
       success
     });
+  },
+
+  postRoute(formData, success){
+    $.ajax({
+      url: 'api/exercise_routes',
+      type: "POST",
+      data: { route: formData },
+      success,
+    });
   }
 };
 

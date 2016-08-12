@@ -1,0 +1,40 @@
+.table {
+  width: 800px;
+  max-width: 100%;
+  margin-bottom: 2rem;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.table tr {
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  text-align: center;
+  padding: 50px;
+  vertical-align: middle;
+  margin-bottom: 150px;
+  height: 40px;
+
+}
+
+.table > thead > tr > th {
+  font-weight: 400;
+  color: #757575;
+  vertical-align: middle;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.table > tbody + tbody {
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+.table .table {
+  background-color: #fff;
+}
+.table .no-border {
+  border: 0;
+}
+.table tr:hover {
+  // border-bottom: 2px solid black;
+  background-color: lightgray;
+}
