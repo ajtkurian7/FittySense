@@ -83,7 +83,7 @@ const LogInForm = React.createClass({
     return (
       <div className="session-page login">
         <div className="login-form-container">
-          <h1 className="signup-title">Fitty Sense</h1>
+          <h1 className="signup-title">FiTTY SENSE</h1>
           <p className="signup-title">Log Into Your Account</p>
 
           <form onSubmit={this._handleSubmit} className="login-form">

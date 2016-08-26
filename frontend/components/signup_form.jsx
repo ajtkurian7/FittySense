@@ -82,12 +82,15 @@ const SignUpForm = React.createClass({
 
     return <ul>{ messages }</ul>;
   },
+  // <img src={"<%= asset_url('/FittySense/app/assets/images/logo.png') %>"}
 
   render(){
     return (
       <div className="session-page signup">
         <div className="login-form-container">
-          <h1 className="signup-title">Fitty Sense</h1>
+          <h1 className="signup-title">
+            FiTTY SENSE
+          </h1>
           <p className="signup-title">Sign Up for a New Account</p>
 
           <form onSubmit={this._handleSubmit} className="login-form">
