@@ -34,9 +34,17 @@
 
 .navbar img {
   float: right;
-  height: 40px;
-  width: 40px;
+  height: 36px;
+  width: 36px;
   margin-right: 20px;
+  cursor: pointer;
+  border: 2px solid white;
+  padding: 2px;
+}
+
+.navbar img:hover {
+  border: 2px solid orange;
+  padding: 2px;
 }
 
 .navbar .button {

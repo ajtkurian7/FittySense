@@ -32,7 +32,7 @@ const SessionActions = {
     });
   },
 
-  removeCurrentUser() {
+  removeCurrentUser(currentUser) {
     AppDispatcher.dispatch({
       actionType: "LOGOUT",
       currentUser: currentUser

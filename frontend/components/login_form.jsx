@@ -102,7 +102,7 @@ const LogInForm = React.createClass({
                 className="textbox"/>
 
               <input type="submit" value="Login" className="button"/>
-              <Link to="/signup" className="link"> Sign Up </Link>
+              <Link to="/signup" className="link"> <span>Sign Up</span> </Link>
               <button className="button" onClick={this._handleGuestLogin}>Guest Login</button>
               {this.fieldErrors('base')}
           </form>
