@@ -141,7 +141,7 @@ const ShowRoute = React.createClass({
           content: "Keep Running"
         });
       } else {
-        for (var j = 0; i < this.state.exercises.length; i++) {
+        for (var j = 0; j < this.state.exercises.length; j++) {
           if (this.state.exercises[j].id === id) {
             let contentString = `<b>${this.state.exercises[j].title}</b>` +
                                 `<p>${this.state.exercises[j].description}</p>` +
@@ -154,6 +154,7 @@ const ShowRoute = React.createClass({
         }
       }
     });
+    debugger
 
     this.state.markers.forEach((marker, i) => {
       marker.addListener('mouseover', () => {

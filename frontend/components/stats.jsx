@@ -56,7 +56,7 @@ const Stats = React.createClass({
         });
       });
 
-      return { distance: distance, totalTime: totalTime, numExercises: totalExercises };
+      return { distance: distance, totalTime: totalTime.toFixed(2), numExercises: totalExercises };
     } else {
       return { distance: 0, totalTime: 0, numExercises: 0 };
     }
